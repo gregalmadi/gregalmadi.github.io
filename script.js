@@ -15,8 +15,9 @@ let playerXTurn = false;
 let playerOTurn = false;
 let stepCount = 0;
 let randomNum = 0;
-const tilePress = new Audio("pressure_plate.wav");
-const partyBlower = new Audio("party.m4a");
+const tilePress = new Audio("/assets/pressure_plate.wav");
+const partyBlower = new Audio("assets/party.m4a");
+const scream = new Audio("/assets/scream2.wav");
 
 const winningCombos = [
   [0, 1, 2],
@@ -46,14 +47,14 @@ const initialize = () => {
     playerX.classList.add("active");
     playerO.classList.remove("active");
     body.style.backgroundImage =
-      "linear-gradient(to right,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
+      "linear-gradient(to right,rgb(0, 0, 0) 0 10%,rgb(255, 255, 255) 75% 100%)";
   } else if (randomNum === 2 && playerOTurn === false) {
     playerOTurn = true;
     playerXTurn = false;
     playerO.classList.add("active");
     playerX.classList.remove("active");
     body.style.backgroundImage =
-      "linear-gradient(to left,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
+      "linear-gradient(to left,rgb(0, 0, 0) 0 10%,rgb(255, 255, 255) 75% 100%)";
   }
 
   tiles.forEach((tile) => {
@@ -93,7 +94,7 @@ tiles.forEach((tile, i) => {
       tile.style.backgroundColor = "rgb(20, 57, 46)";
       tile.style.boxShadow = "none";
       body.style.backgroundImage =
-        "linear-gradient(to left,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
+        "linear-gradient(to left,rgb(0, 0, 0) 0 10%,rgb(255, 255, 255) 75% 100%)";
       tilePress.play();
 
       switchPlayer();
@@ -106,7 +107,7 @@ tiles.forEach((tile, i) => {
       tile.style.boxShadow = "none";
       tilePress.play();
       body.style.backgroundImage =
-        "linear-gradient(to right,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
+        "linear-gradient(to right,rgb(0, 0, 0) 0 10%,rgb(255, 255, 255) 75% 100%)";
 
       switchPlayer();
       stepCount++;
@@ -114,6 +115,7 @@ tiles.forEach((tile, i) => {
       checkGameStatus();
     } else if (tile.innerHTML !== "") {
       tile.classList.add("animate");
+      scream.play();
       setTimeout(() => {
         tile.classList.remove("animate");
       }, 1000);
