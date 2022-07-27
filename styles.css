@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.grid-container {
+  margin: auto;
+  width: 25vw;
+  text-align: center;
+}
+
+.title {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  margin: auto;
+  padding-top: 4vh;
+}
+
+.playerX {
+  display: inline;
+  font-size: 500%;
+  float: left;
+  margin: 11vh 0;
+  font-family: "Cinzel", serif;
+}
+
+.playerO {
+  display: inline;
+  font-size: 500%;
+  float: right;
+  margin: 11vh 0;
+  font-family: "Cinzel", serif;
+}
+
+.game-container {
+  display: inline-grid;
+  grid-template: repeat(3, 5em) / repeat(3, 5em);
+  grid-gap: 1px;
+  margin-top: 4vh;
+}
+
+.tile {
+  background-color: rgb(35, 105, 84);
+  text-align: center;
+  font-size: 400%;
+  box-shadow: -1px -1px 5px black;
+  color: rgb(251, 239, 223);
+  font-family: "Cinzel", serif;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.gameOver {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.winMsg {
+  color: white;
+  font-size: 200%;
+  text-align: center;
+  font-family: "Cinzel", serif;
+  margin-top: 20vh;
+}
+
+.newGame {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  font-family: "Cinzel", serif;
+  padding: 2px;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.reset {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  font-family: "Cinzel", serif;
+  padding: 2px;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.animate {
+  animation-name: warning;
+  animation-duration: 1s;
+}
+
+@keyframes warning {
+  0% {
+    background-color: rgb(20, 57, 46);
+  }
+  25% {
+    background-color: rgb(253, 0, 0);
+  }
+  50% {
+    background-color: rgb(20, 57, 46);
+  }
+  75% {
+    background-color: rgb(253, 0, 0);
+  }
+  100% {
+    background-color: rgb(20, 57, 46);
+  }
+}
