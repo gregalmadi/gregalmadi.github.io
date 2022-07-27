@@ -5,6 +5,9 @@
   padding: 0;
 }
 
+body {
+}
+
 .grid-container {
   margin: auto;
   width: 25vw;
@@ -48,10 +51,12 @@
   box-shadow: -1px -1px 5px black;
   color: rgb(251, 239, 223);
   font-family: "Cinzel", serif;
+  cursor: pointer;
 }
 
 .active {
   text-decoration: underline;
+  color: rgb(255, 255, 255);
 }
 
 .gameOver {
@@ -91,8 +96,7 @@
 }
 
 .animate {
-  animation-name: warning;
-  animation-duration: 1s;
+  animation: warning 1s;
 }
 
 @keyframes warning {
@@ -110,5 +114,6 @@
   }
   100% {
     background-color: rgb(20, 57, 46);
+    /*20, 57, 46*/
   }
 }

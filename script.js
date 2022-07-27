@@ -8,12 +8,15 @@ const reset = document.querySelector(".reset");
 const gameOverWindow = document.querySelector(".gameOver");
 const newGame = document.querySelector(".newGame");
 const winMessage = document.querySelector(".winMsg");
+const body = document.querySelector("body");
 
 // All game variables
 let playerXTurn = false;
 let playerOTurn = false;
 let stepCount = 0;
 let randomNum = 0;
+const tilePress = new Audio("pressure_plate.wav");
+const partyBlower = new Audio("party.m4a");
 
 const winningCombos = [
   [0, 1, 2],
@@ -33,6 +36,7 @@ let Omarks = [];
 const initialize = () => {
   randomNum = Math.trunc(Math.random() * 2 + 1);
   gameOverWindow.style.display = "none";
+
   playerXTurn = false;
   playerOTurn = false;
 
@@ -41,17 +45,22 @@ const initialize = () => {
     playerOTurn = false;
     playerX.classList.add("active");
     playerO.classList.remove("active");
+    body.style.backgroundImage =
+      "linear-gradient(to right,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
   } else if (randomNum === 2 && playerOTurn === false) {
     playerOTurn = true;
     playerXTurn = false;
     playerO.classList.add("active");
     playerX.classList.remove("active");
+    body.style.backgroundImage =
+      "linear-gradient(to left,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
   }
 
   tiles.forEach((tile) => {
     tile.innerHTML = "";
     tile.style.backgroundColor = "rgb(35, 105, 84)";
     tile.style.boxShadow = "-1px -1px 5px black";
+    tile.classList.remove("animate");
   });
 
   stepCount = 0;
@@ -83,6 +92,9 @@ tiles.forEach((tile, i) => {
       tile.innerHTML = "X";
       tile.style.backgroundColor = "rgb(20, 57, 46)";
       tile.style.boxShadow = "none";
+      body.style.backgroundImage =
+        "linear-gradient(to left,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
+      tilePress.play();
 
       switchPlayer();
       stepCount++;
@@ -92,6 +104,9 @@ tiles.forEach((tile, i) => {
       tile.innerHTML = "O";
       tile.style.backgroundColor = "rgb(20, 57, 46)";
       tile.style.boxShadow = "none";
+      tilePress.play();
+      body.style.backgroundImage =
+        "linear-gradient(to right,rgb(0, 0, 0) 0 40%,rgb(255, 255, 255) 75% 100%)";
 
       switchPlayer();
       stepCount++;
@@ -115,6 +130,7 @@ const checkGameStatus = () => {
       array.every((el) => Xmarks.includes(el))
     ) {
       winMessage.innerHTML = `'X' won!🥳`;
+      partyBlower.play();
       gameOver();
       win = true;
     }
@@ -125,6 +141,7 @@ const checkGameStatus = () => {
     ) {
       winMessage.innerHTML = `'O' won!🥳`;
       gameOver();
+      partyBlower.play();
       win = true;
     }
     if (stepCount === 9 && win === false) {
@@ -149,4 +166,6 @@ const gameOver = () => {
   playerX.classList.remove("active");
   playerO.classList.remove("active");
   gameOverWindow.style.display = "block";
+  body.style.backgroundImage =
+    "linear-gradient(to left,rgb(255,255,255),rgb(255,255,255))";
 };
