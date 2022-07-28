@@ -7,11 +7,14 @@
 
 body {
   font-family: "Cinzel", serif;
+  display: block;
+  align-items: center;
+  width: auto;
 }
 
 .grid-container {
   margin: auto;
-  width: 25vw;
+  width: 30em;
   text-align: center;
 }
 
@@ -23,14 +26,14 @@ body {
 
 .playerX {
   display: inline;
-  font-size: 500%;
+  font-size: 5em;
   float: left;
   margin: 11vh 0;
 }
 
 .playerO {
   display: inline;
-  font-size: 500%;
+  font-size: 5em;
   float: right;
   margin: 11vh 0;
 }
@@ -84,7 +87,6 @@ body {
   display: block;
   margin: auto;
   margin-top: 20px;
-  font-family: "Cinzel", serif;
   padding: 2px;
   font-weight: bold;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);

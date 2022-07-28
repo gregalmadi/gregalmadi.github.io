@@ -15,9 +15,9 @@ let playerXTurn = false;
 let playerOTurn = false;
 let stepCount = 0;
 let randomNum = 0;
-const tilePress = new Audio("/assets/pressure_plate.wav");
+
 const partyBlower = new Audio("assets/party.m4a");
-const scream = new Audio("/assets/scream2.wav");
+const tieChime = new Audio("/assets/tie.wav");
 
 const winningCombos = [
   [0, 1, 2],
@@ -89,33 +89,37 @@ const switchPlayer = () => {
 // Game events
 tiles.forEach((tile, i) => {
   tile.addEventListener("click", () => {
+    const tilePress = new Audio("/assets/pressure_plate.wav");
+    const scream1 = new Audio("/assets/scream1_short.wav");
+    const scream2 = new Audio("/assets/scream2_short.wav");
+
+    tile.style.backgroundColor = "rgb(20, 57, 46)";
+    tile.style.boxShadow = "none";
+
     if (tile.innerHTML === "" && playerXTurn) {
       tile.innerHTML = "X";
-      tile.style.backgroundColor = "rgb(20, 57, 46)";
-      tile.style.boxShadow = "none";
+      stepCount++;
+      tilePress.play();
       body.style.backgroundImage =
         "linear-gradient(to left,rgb(0, 0, 0) 0 10%,rgb(255, 255, 255) 75% 100%)";
-      tilePress.play();
-
       switchPlayer();
-      stepCount++;
       Xmarks.push(i);
       checkGameStatus();
     } else if (tile.innerHTML === "" && playerOTurn) {
       tile.innerHTML = "O";
-      tile.style.backgroundColor = "rgb(20, 57, 46)";
-      tile.style.boxShadow = "none";
+      stepCount++;
       tilePress.play();
       body.style.backgroundImage =
         "linear-gradient(to right,rgb(0, 0, 0) 0 10%,rgb(255, 255, 255) 75% 100%)";
-
       switchPlayer();
-      stepCount++;
       Omarks.push(i);
       checkGameStatus();
     } else if (tile.innerHTML !== "") {
       tile.classList.add("animate");
-      scream.play();
+      const randomSound = Math.round(Math.random() + 1);
+      console.log(randomSound);
+      randomSound === 1 ? scream1.play() : scream2.play();
+
       setTimeout(() => {
         tile.classList.remove("animate");
       }, 1000);
@@ -135,22 +139,25 @@ const checkGameStatus = () => {
       partyBlower.play();
       gameOver();
       win = true;
+      console.log(win);
     }
-
     if (
       array.length <= Omarks.length &&
       array.every((el) => Omarks.includes(el))
     ) {
       winMessage.innerHTML = `'O' won!🥳`;
-      gameOver();
       partyBlower.play();
-      win = true;
-    }
-    if (stepCount === 9 && win === false) {
-      winMessage.innerHTML = `It's a tie!`;
       gameOver();
+      win = true;
+      console.log(win);
     }
   });
+
+  if (stepCount === 9 && win === false) {
+    winMessage.innerHTML = `It's a tie!`;
+    tieChime.play();
+    gameOver();
+  }
 };
 
 // Button events
