@@ -48,10 +48,10 @@ body {
 }
 
 .tile {
-  background-color: rgb(35, 105, 84);
+  /*background-color: rgb(35, 105, 84);*/
   text-align: center;
   font-size: 400%;
-  box-shadow: -1px -1px 5px black;
+  /* box-shadow: -1px -1px 5px black;*/
   color: rgb(251, 239, 223);
   cursor: pointer;
 }
@@ -74,15 +74,6 @@ body {
   font-size: 200%;
   text-align: center;
   margin-top: 20vh;
-}
-
-.newGame {
-  display: block;
-  margin: auto;
-  margin-top: 20px;
-  padding: 2px;
-  font-weight: bold;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .reset {
@@ -114,4 +105,19 @@ body {
   100% {
     background-color: rgb(20, 57, 46);
   }
+}
+
+@keyframes tilePress {
+  0% {
+    background-color: rgb(35, 105, 84);
+    box-shadow: -1px -1px 5px black;
+  }
+  100% {
+    background-color: rgb(20, 57, 46);
+    boxshadow: "none";
+  }
+}
+
+.tilepress {
+  animation: tilePress 2s;
 }
