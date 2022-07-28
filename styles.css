@@ -10,6 +10,8 @@ body {
   display: block;
   align-items: center;
   width: auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .grid-container {
