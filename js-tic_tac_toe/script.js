@@ -17,6 +17,7 @@ let randomNum = 0;
 let Xmarks = [];
 let Omarks = [];
 let initialize;
+let win;
 const winningCombos = [
   [0, 1, 2],
   [3, 4, 5],
@@ -140,7 +141,7 @@ const compareTiles = (winArr, XArr, OArr) => {
 
 // Checking game status - tie situation
 const checkGameStatus = () => {
-  let win = false;
+  win = false;
 
   winningCombos.forEach((array) => {
     compareTiles(array, Xmarks, Omarks, "X", "O");
