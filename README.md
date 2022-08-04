@@ -1,4 +1,2 @@
 # gregalmadi.github.io
-tictactoe
-
-currently only displayed well on bigscreens
+a collection of some fun javascript (mini)games and (mini)projects
