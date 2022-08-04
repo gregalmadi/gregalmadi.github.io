@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap");
+
+body {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: bisque;
+}
+
+h1 {
+  font-size: 46px;
+  margin-top: 100px;
+}
+
+h1,
+h3 {
+  text-align: center;
+  width: auto;
+  margin: 20px, auto;
+}
+
+.game-container {
+  display: inline-grid;
+  grid-template: repeat(4, 7em) / repeat(4, 7em);
+  grid-gap: 20px;
+
+  padding: 20px;
+  background-image: linear-gradient(
+    to top right,
+    rgb(210, 23, 23),
+    rgb(225, 30, 108),
+    rgb(144, 30, 225)
+  );
+}
+
+.tile {
+  background-color: rgb(22, 21, 21, 0.8);
+  box-shadow: -1px -1px 5px black;
+  cursor: pointer;
+}
+
+.tileBlocker {
+  pointer-events: none;
+}
+
+.img_content {
+  visibility: hidden;
+  transform: scale(-1, 1);
+}
+
+.tileHidden {
+  visibility: hidden;
+}
+
+.tileHover {
+  animation: hoverTile 0.5s;
+}
+
+.tileFlip {
+  animation: flipTile 1s;
+}
+
+.tileFlipBack {
+  animation: flipBackTile 1s;
+}
+
+.tileFlyAway {
+  animation: flyAway 2s;
+}
+
+.tileRandom {
+  animation: tilesRandomized 1s;
+}
+
+.grid-container {
+  margin: auto;
+  width: 30em;
+  text-align: center;
+}
+
+@keyframes hoverTile {
+  0% {
+    transform: none;
+  }
+  25% {
+    transform: rotate(8deg);
+  }
+  75% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes flipTile {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes flipBackTile {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
+@keyframes flyAway {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translate(-100vw, -100vh) rotate(-720deg) scale(0.1);
+    visibility: hidden;
+  }
+}
+
+@keyframes tilesRandomized {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 0, 1, -720deg);
+  }
+}
+
+.gameOver {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+}
+
+.message {
+  color: white;
+  font-size: 200%;
+  text-align: center;
+  margin-top: 45vh;
+}
+
+.reset,
+.restart,
+.start {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  padding: 2px;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.reset {
+  display: none;
+}
