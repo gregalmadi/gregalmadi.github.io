@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Roboto:wght@300&display=swap");
+
+*,
+html {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.header--dark {
+  background-color: rgb(51, 57, 64);
+  color: rbg(236, 236, 236);
+  height: 75px;
+}
+
+.header__title {
+  display: inline;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.header__search {
+  display: flex;
+  float: right;
+  margin-top: 15px;
+  width: 25vw;
+  justify-content: flex-end;
+  margin-right: 50px;
+}
+
+.search__input {
+  /*display: inline;*/
+  border-radius: 4px 0 0 4px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1.2rem;
+  transition: border-color 0.15s;
+  height: 25px;
+  display: flex;
+  border-color: transparent;
+  width: 200px;
+}
+
+.search__input:focus {
+  border-color: rgb(128, 189, 255);
+}
+
+.search__btn {
+  background-color: rgb(0, 123, 255);
+
+  display: inline;
+  width: 45px;
+  height: 42px;
+  border-radius: 0 4px 4px 0;
+  border-color: transparent;
+  padding: 10px;
+
+  color: white;
+  font-size: 120%;
+  cursor: pointer;
+}
+
+.main__nav {
+  background-color: rgb(33, 37, 41);
+}
+
+.main__breadcrumb {
+  background-color: rgb(233, 236, 239);
+  border-radius: 0.25rem;
+  padding: 1rem 1.5rem;
+  color: rgb(96, 96, 96);
+}
+
+.card__top {
+  border-radius: 0.25rem 0.25rem 0 0;
+  /*border-bottom: 2px solid rgba(0, 0, 0, 0.069);*/
+  transition: background-color 0.3s;
+  display: block;
+  margin-top: 20px;
+  padding-left: 20px;
+  padding-right: -20px;
+  padding-bottom: 20px;
+
+  font-size: 120%;
+  width: 100%;
+}
+
+.card__bottom {
+  border-radius: 0 0 0.25rem 0.25rem;
+  transition: background-color 0.3s;
+  display: block;
+  width: 85%;
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 90%;
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+}
+
+.card__bottom:hover {
+  font-weight: bold;
+  color: white;
+}
+
+.main__card--blue {
+  background-color: rgb(0, 123, 255);
+}
+.main__card--yellow {
+  background-color: rgb(255, 193, 7);
+}
+.main__card--green {
+  background-color: rgb(40, 167, 69);
+}
+.main__card--red {
+  background-color: rgb(220, 53, 69);
+}
+
+/* Nem előre definiált css selectorok */
+
+.sidebar {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 75px;
+  width: 200px;
+  font-weight: 600;
+}
+
+li {
+  text-decoration: none;
+  color: rgb(155, 155, 155);
+  padding: 30px 5px 10px 30px;
+}
+
+li:hover {
+  color: white;
+  cursor: pointer;
+}
+
+details {
+  cursor: pointer;
+}
+
+.content {
+  position: relative;
+  display: inline-block;
+  padding: 20px;
+  width: 80%;
+}
+
+.main__cards {
+  /*width: 100%;*/
+  padding-top: 20px;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+
+  /*flex-wrap: wrap;*/
+}
+
+.main__card {
+  /*display: inline-block;*/
+  width: 22%;
+  height: 120px;
+  flex-wrap: wrap;
+  /*padding: 20px;*/
+
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.206);
+  border-radius: 0.25rem;
+
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.05) 44%,
+    rgba(0, 0, 0, 0.1) 45%,
+    rgba(0, 0, 0, 0) 46%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  /*box-sizing: border-box;*/
+}
+
+.pulsate {
+  animation: pulsate 1s 5;
+}
+
+h3 {
+  display: inline-block;
+  margin: 20px;
+}
+
+h1 {
+  font-size: 250%;
+}
+
+.menu__items {
+  font-family: "Cinzel", serif;
+  text-decoration: none;
+  color: rgb(155, 155, 155);
+  padding-top: 15px;
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.nav__ul {
+  padding: 10px;
+  height: 100vh;
+}
+
+.header__user {
+  display: inline;
+  color: rgb(155, 155, 155);
+  font-size: 150%;
+  padding-left: 20px;
+}
+
+.menu__btn {
+  display: inline;
+  color: rgb(155, 155, 155);
+  padding-left: 60px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 150%;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.fa-angle-right {
+  float: right;
+  cursor: pointer;
+}
+
+.fa-caret-down {
+  cursor: pointer;
+}
+
+.header__left {
+  display: flex;
+  float: left;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.user {
+  height: 120px;
+  position: fixed;
+  right: 0;
+  top: 75px;
+  width: 200px;
+  font-weight: 600;
+  display: none;
+  background-color: rgb(33, 37, 41);
+  color: rgb(155, 155, 155);
+  text-align: center;
+  z-index: 100;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.user button {
+  margin-top: 15px;
+}
+
+.menu--active {
+  color: white;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  display: inline;
+  animation: fadeIn 1s forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    display: inline;
+    opacity: 1;
+  }
+  99% {
+    display: inline;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.contentShiftRight {
+  animation: slideRight 0.5s forwards;
+}
+
+.contentShiftLeft {
+  animation: slideLeft 1.5s forwards;
+}
+
+@keyframes slideRight {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: 200px;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    left: 200px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes pulsate {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: scale(1.04, 1.04);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .main__cards {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    align-content: space-between;
+    column-gap: 20px;
+  }
+
+  .main__card {
+    width: 100%;
+    height: 120px;
+  }
+
+  .menu__btn {
+    position: fixed;
+    left: 10px;
+    top: 20px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .header__title {
+    display: none;
+  }
+}
+
+@keyframes flashingRed {
+  0% {
+    border: none;
+  }
+  100% {
+    border: 2px solid red;
+    background-color: salmon;
+  }
+}
+
+.warning {
+  animation: flashingRed 0.5s 2;
+}
+
+#name {
+  border: none;
+  color: black;
+}
+
+#password {
+  border: none;
+  color: black;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <title>CSS Project</title>
+  </head>
+  <body>
+    <header class="header--dark">
+      <div class="header__left">
+        <h3 class="header__title">Admin Page</h3>
+        <nav class="menu__btn">
+          <i class="fa fa-bars"></i>
+        </nav>
+      </div>
+
+      <div class="header__search">
+        <input
+          id="search"
+          type="text"
+          placeholder="Search for... colors"
+          class="search__input"
+        />
+        <button class="search__btn">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+        <div class="header__user">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </div>
+        <div class="user">
+          <label for="name">Name:</label>
+          <input id="name" type="text" minlength="4" required />
+          <label for="password">Password:</label
+          ><input id="password" type="text" placeholder="1234" required />
+          <button class="signIn">Sign In</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <aside class="sidebar">
+        <nav class="main__nav">
+          <ul class="nav__ul">
+            <details>
+              <summary class="menu__items">Core</summary>
+              <li class="menu--active">
+                <i class="fa fa-tachometer"></i> Dashboard
+                <i class="fa fa-angle-right"></i>
+              </li>
+            </details>
+            <details>
+              <summary class="menu__items">Interface</summary>
+              <li>
+                <i class="fa fa-windows"></i> Layouts
+                <i class="fa fa-angle-right"></i>
+              </li>
+
+              <li>
+                <i class="fa fa-bookmark"></i> Pages
+                <i class="fa fa-angle-right"></i>
+              </li>
+            </details>
+            <details>
+              <summary class="menu__items">Addons</summary>
+              <li>
+                <i class="fa fa-area-chart"></i> Charts
+                <i class="fa fa-angle-right"></i>
+              </li>
+              <li>
+                <i class="fa fa-table"></i> Tables
+                <i class="fa fa-angle-right"></i>
+              </li>
+            </details>
+          </ul>
+        </nav>
+      </aside>
+      <section class="content">
+        <h1>Dashboard</h1>
+        <div class="main__breadcrumb">Dashboard</div>
+        <div class="main__cards">
+          <div class="main__card main__card--blue">
+            <div class="card__top">Primary Card</div>
+            <div class="card__bottom">
+              View Details <i class="fa fa-angle-right"></i>
+            </div>
+          </div>
+          <div class="main__card main__card--yellow">
+            <div class="card__top">Warning Card</div>
+            <div class="card__bottom">
+              View Details <i class="fa fa-angle-right"></i>
+            </div>
+          </div>
+          <div class="main__card main__card--green">
+            <div class="card__top">Success Card</div>
+            <div class="card__bottom">
+              View Details <i class="fa fa-angle-right"></i>
+            </div>
+          </div>
+          <div class="main__card main__card--red">
+            <div class="card__top">Danger Card</div>
+            <div class="card__bottom">
+              View Details <i class="fa fa-angle-right"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
