@@ -62,9 +62,11 @@ userOpen.addEventListener("click", () => {
 searcButton.addEventListener("click", () => {
   userInput = searchValue.value;
 
-  Array.from(mainCard)
-    .filter((card) => card.className.includes(userInput))[0]
-    .classList.add("pulsate");
+  if (userInput !== "") {
+    Array.from(mainCard)
+      .filter((card) => card.className.includes(userInput))[0]
+      .classList.add("pulsate");
+  }
 });
 
 // Auto close sidebar menu if resized
