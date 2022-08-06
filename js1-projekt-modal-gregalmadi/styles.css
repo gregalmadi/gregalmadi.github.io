@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Roboto+Condensed&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Cinzel", serif;
+  font-weight: 200;
+}
+
+body {
+  background-image: linear-gradient(to top, rgb(221, 142, 165), white);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.626);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.modal__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 50%;
+  padding: 15px;
+  gap: 5px;
+  z-index: 10;
+}
+
+.modal__header {
+  display: flex;
+  justify-self: center;
+  align-self: flex-start;
+  font-size: 120%;
+  font-weight: bold;
+}
+
+.modal__content {
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  text-align: justify;
+  justify-self: center;
+  align-self: flex-start;
+  width: 90%;
+  padding: 10px;
+}
+
+.modal__footer {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  justify-self: flex-end;
+  align-self: flex-end;
+}
+.container {
+  margin: 300px auto;
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: justify;
+  justify-content: space-around;
+  align-items: center;
+  width: 200px;
+  height: 300px;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.271);
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.286);
+}
+
+.content__text {
+  font-family: "Roboto Condensed", sans-serif;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+.content__header {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.btn {
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.btn--okay {
+  background-color: rgb(0, 199, 0);
+}
+
+.btn--no {
+  background-color: rgb(199, 0, 0);
+}
+
+.btn--close {
+  align-self: flex-end;
+  background-color: transparent;
+}
+
+.fadeIn {
+  animation: fade 1s normal forwards;
+}
+
+.fadeOut {
+  animation: fade 1s reverse forwards;
+}
+
+@keyframes fade {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 560px) {
+  .modal__container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    margin: 50px auto;
+  }
+}
