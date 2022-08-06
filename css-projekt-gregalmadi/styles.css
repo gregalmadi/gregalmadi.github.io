@@ -48,16 +48,21 @@ html {
 .search__btn {
   background-color: rgb(0, 123, 255);
 
-  display: inline;
+  display: flex;
   width: 45px;
   height: 42px;
   border-radius: 0 4px 4px 0;
   border-color: transparent;
   padding: 10px;
-
   color: white;
   font-size: 120%;
   cursor: pointer;
+}
+
+.fa-search {
+  display: flex;
+  align-self: center;
+  justify-self: center;
 }
 
 .main__nav {
@@ -73,14 +78,12 @@ html {
 
 .card__top {
   border-radius: 0.25rem 0.25rem 0 0;
-  /*border-bottom: 2px solid rgba(0, 0, 0, 0.069);*/
   transition: background-color 0.3s;
   display: block;
   margin-top: 20px;
   padding-left: 20px;
   padding-right: -20px;
   padding-bottom: 20px;
-
   font-size: 120%;
   width: 100%;
 }
@@ -115,21 +118,37 @@ html {
   background-color: rgb(220, 53, 69);
 }
 
-/* Nem előre definiált css selectorok */
+/* Not pre-defined css selectors */
 
-.sidebar {
+aside {
   display: none;
   position: fixed;
   left: 0;
   top: 75px;
-  width: 200px;
   font-weight: 600;
+  z-index: 100;
+}
+
+.sidebar {
+  width: 200px;
+}
+
+.sidebar--small {
+  width: 40px;
+}
+
+li,
+.li--small {
+  text-decoration: none;
+  color: rgb(155, 155, 155);
 }
 
 li {
-  text-decoration: none;
-  color: rgb(155, 155, 155);
   padding: 30px 5px 10px 30px;
+}
+
+.li--small {
+  padding: 30px 5px 10px 0;
 }
 
 li:hover {
@@ -143,28 +162,24 @@ details {
 
 .content {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   padding: 20px;
-  width: 80%;
 }
 
 .main__cards {
-  /*width: 100%;*/
   padding-top: 20px;
   text-align: left;
   display: flex;
   justify-content: space-between;
-
-  /*flex-wrap: wrap;*/
 }
 
 .main__card {
-  /*display: inline-block;*/
+  display: flex;
   width: 22%;
   height: 120px;
   flex-wrap: wrap;
-  /*padding: 20px;*/
-
+  flex-direction: column;
   color: white;
   border: 1px solid rgba(0, 0, 0, 0.206);
   border-radius: 0.25rem;
@@ -177,7 +192,6 @@ details {
     rgba(0, 0, 0, 0) 46%,
     rgba(0, 0, 0, 0) 100%
   );
-  /*box-sizing: border-box;*/
 }
 
 .pulsate {
@@ -238,6 +252,7 @@ a:active {
 
 .fa-caret-down {
   cursor: pointer;
+  padding-left: 1.5px;
 }
 
 .header__left {
@@ -275,12 +290,22 @@ a:active {
   color: white;
 }
 
+/* Menu fade animations and classes */
 @keyframes fadeIn {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -293,17 +318,22 @@ a:active {
   animation: fadeOut 1s forwards;
 }
 
-@keyframes fadeOut {
+/* Content slide animations for big screen */
+@keyframes slideRight {
   0% {
-    display: inline;
-    opacity: 1;
-  }
-  99% {
-    display: inline;
+    left: 0;
   }
   100% {
-    opacity: 0;
-    display: none;
+    padding-left: 220px;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    padding-left: 220px;
+  }
+  100% {
+    left: 0;
   }
 }
 
@@ -315,21 +345,41 @@ a:active {
   animation: slideLeft 1.5s forwards;
 }
 
-@keyframes slideRight {
+/* Content slide animations for small screen */
+@keyframes slideRight--small {
   0% {
     left: 0;
   }
   100% {
-    left: 200px;
+    padding-left: 50px;
   }
 }
 
-@keyframes slideLeft {
+@keyframes slideLeft--small {
   0% {
-    left: 200px;
+    padding-left: 50px;
   }
   100% {
     left: 0;
+  }
+}
+
+.contentShiftRight--small {
+  animation: slideRight--small 1s forwards;
+}
+
+.contentShiftLeft--small {
+  animation: slideLeft--small 1s forwards;
+}
+
+/* Login animations and classes + search bar filtering */
+@keyframes flashingRed {
+  0% {
+    border: none;
+  }
+  100% {
+    border: 2px solid red;
+    background-color: salmon;
   }
 }
 
@@ -345,13 +395,28 @@ a:active {
   }
 }
 
+.warning {
+  animation: flashingRed 0.5s 2;
+}
+
+#name {
+  border: none;
+  color: black;
+}
+
+#password {
+  border: none;
+  color: black;
+}
+
+/* Mobile specific settings */
 @media only screen and (max-width: 700px) {
   .main__cards {
     flex-direction: column;
-    width: 100%;
+
     align-items: center;
     align-content: space-between;
-    column-gap: 20px;
+    gap: 20px;
   }
 
   .main__card {
@@ -372,28 +437,4 @@ a:active {
   .header__title {
     display: none;
   }
-}
-
-@keyframes flashingRed {
-  0% {
-    border: none;
-  }
-  100% {
-    border: 2px solid red;
-    background-color: salmon;
-  }
-}
-
-.warning {
-  animation: flashingRed 0.5s 2;
-}
-
-#name {
-  border: none;
-  color: black;
-}
-
-#password {
-  border: none;
-  color: black;
 }
