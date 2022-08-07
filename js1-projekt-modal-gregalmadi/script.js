@@ -40,7 +40,13 @@ content.forEach((el, i) => {
 
 // Listening for modal closing events
 closeModalBtn.addEventListener("click", modalClose);
-//modalWindow.addEventListener("click", modalClose);
+modalWindow.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    modalClose();
+  } else {
+    return;
+  }
+});
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     modalClose();
