@@ -35,30 +35,9 @@ let initialize;
 let lives = 0;
 let flyAway = 0;
 
-//többször változtava a nehézséget a játék megkezdése előtt elrontja a játékot
-
 // Initialize game
 (initialize = () => {
   gameContainer.classList.add("tileBlocker");
-  radioButtons.forEach((btn) =>
-    btn.addEventListener("click", () => {
-      lives = Number(btn.getAttribute("id"));
-      livesCounter.innerHTML = `Lives: ${"❤️".repeat(lives)}`;
-      startButton.removeAttribute("disabled");
-
-      startButton.addEventListener("click", () => {
-        diffSelector.style.display = "none";
-        startButton.style.display = "none";
-        resetGame.style.display = "block";
-        btn.checked = false;
-
-        randomizer();
-      });
-    })
-  );
-
-  tiles.forEach((el) => el.classList.remove("tileHidden"));
-  tileImages.forEach((el) => el.classList.remove("tileHidden"));
 })();
 
 // Tile content generator
@@ -248,6 +227,9 @@ const resetVisuals = () => {
   startButton.style.display = "block";
   resetGame.style.display = "none";
   livesCounter.innerHTML = "";
+  tiles.forEach((el) => el.classList.remove("tileHidden"));
+  tileImages.forEach((el) => el.classList.remove("tileHidden"));
+
   initialize();
 };
 
@@ -261,3 +243,23 @@ resetGame.addEventListener("click", () => {
 });
 
 /* Array.from(tiles).every((tile) => tile.classList.contains("tileHidden"))*/
+
+radioButtons.forEach((btn) =>
+  btn.addEventListener("click", () => {
+    lives = Number(btn.getAttribute("id"));
+    livesCounter.innerHTML = `Lives: ${"❤️".repeat(lives)}`;
+    startButton.removeAttribute("disabled");
+  })
+);
+
+startButton.addEventListener("click", () => {
+  diffSelector.style.display = "none";
+  startButton.style.display = "none";
+  resetGame.style.display = "block";
+
+  radioButtons.forEach((radio) => {
+    radio.checked = false;
+  });
+
+  randomizer();
+});
