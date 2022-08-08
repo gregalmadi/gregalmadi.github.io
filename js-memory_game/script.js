@@ -123,6 +123,7 @@ tiles.forEach((tile, i) => {
   tile.addEventListener("click", () => {
     let goodMoves = [];
     tile.classList.add("tileFlip");
+    tileImages[i].style.transform = "none";
 
     setTimeout(() => {
       tileImages[i].style.visibility = "visible";
@@ -130,6 +131,7 @@ tiles.forEach((tile, i) => {
 
     setTimeout(() => {
       tile.classList.remove("tileFlip");
+      tileImages[i].style.transform = "scale(-1, 1)";
     }, 1000);
 
     if (

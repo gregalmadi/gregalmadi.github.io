@@ -46,7 +46,6 @@ h3 {
 
 .img_content {
   visibility: hidden;
-  transform: scale(-1, 1);
 }
 
 .tileHidden {
@@ -58,7 +57,7 @@ h3 {
 }
 
 .tileFlip {
-  animation: flipTile 1s;
+  animation: flipTile 1s forwards;
 }
 
 .tileFlipBack {
