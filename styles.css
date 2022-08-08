@@ -63,7 +63,7 @@ a {
   padding: 10px;
   align-items: center;
   justify-content: center;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.378);
+  box-shadow: 3px -3px 10px rgba(0, 0, 0, 0.378);
 }
 
 .card:hover {
