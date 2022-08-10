@@ -9,6 +9,8 @@ const modalWindow = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal__content");
 const modalHeader = document.querySelector(".modal__header");
 const closeModalBtn = document.querySelector(".btn--close");
+const okayBtn = document.querySelector(".btn--okay");
+const noBtn = document.querySelector(".btn--no");
 
 // Opening modal logic
 const modalOpen = (i) => {
@@ -40,6 +42,8 @@ content.forEach((el, i) => {
 
 // Listening for modal closing events
 closeModalBtn.addEventListener("click", modalClose);
+okayBtn.addEventListener("click", modalClose);
+noBtn.addEventListener("click", modalClose);
 modalWindow.addEventListener("click", (e) => {
   if (e.target.classList.contains("modal")) {
     modalClose();
