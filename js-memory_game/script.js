@@ -244,6 +244,7 @@ const resetData = () => {
     el.classList.remove("tileFlyAway");
   });
   tileImages.forEach((el) => {
+    el.style.visibility = "hidden";
     el.classList.remove("tileHidden");
     el.classList.remove("tileFlyAway");
   });
