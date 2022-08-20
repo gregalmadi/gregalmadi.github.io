@@ -65,48 +65,56 @@ const randomizer = () => {
         fruit = "grape";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[0].push(i);
+
         break;
       case 2:
       case 3:
         fruit = "kiwi";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[1].push(i);
+
         break;
       case 4:
       case 5:
         fruit = "apple";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[2].push(i);
+
         break;
       case 6:
       case 7:
         fruit = "banana";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[3].push(i);
+
         break;
       case 8:
       case 9:
         fruit = "cherry";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[4].push(i);
+
         break;
       case 10:
       case 11:
         fruit = "strawberry";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[5].push(i);
+
         break;
       case 12:
       case 13:
         fruit = "orange";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[6].push(i);
+
         break;
       case 14:
       case 15:
         fruit = "lemon";
         tileImages[i].setAttribute("src", `images/${fruit}_fruit.svg`);
         fruitMatrix[7].push(i);
+
         break;
     }
   });
@@ -224,39 +232,52 @@ const statusCheck = () => {
 };
 
 // New game
-const resetVisuals = () => {
-  diffSelector.style.display = "block";
-  startButton.style.display = "block";
-  resetGame.style.display = "none";
+const resetData = () => {
   livesCounter.innerHTML = "";
-  tiles.forEach((el) => el.classList.remove("tileHidden"));
-  tileImages.forEach((el) => el.classList.remove("tileHidden"));
+  diffSelector.style.display = "block";
+  resetGame.style.display = "none";
+  startButton.disabled = true;
+  flyAway = 0;
+
+  tiles.forEach((el) => {
+    el.classList.remove("tileHidden");
+    el.classList.remove("tileFlyAway");
+  });
+  tileImages.forEach((el) => {
+    el.classList.remove("tileHidden");
+    el.classList.remove("tileFlyAway");
+  });
+
+  fruitMatrix.forEach((fruitArr) => {
+    fruitArr.splice(0, 2);
+  });
+
+  for (const keys of Object.keys(last2TileElements)) {
+    last2TileElements[keys] = [];
+  }
 
   initialize();
 };
 
 restartGame.addEventListener("click", () => {
-  resetVisuals();
+  resetData();
   gameOverWindow.style.display = "none";
 });
 
 resetGame.addEventListener("click", () => {
-  resetVisuals();
+  resetData();
 });
-
-/* Array.from(tiles).every((tile) => tile.classList.contains("tileHidden"))*/
 
 radioButtons.forEach((btn) =>
   btn.addEventListener("click", () => {
     lives = Number(btn.getAttribute("id"));
     livesCounter.innerHTML = `Lives: ${"❤️".repeat(lives)}`;
-    startButton.removeAttribute("disabled");
+    startButton.disabled = false;
   })
 );
 
 startButton.addEventListener("click", () => {
   diffSelector.style.display = "none";
-  startButton.style.display = "none";
   resetGame.style.display = "block";
 
   radioButtons.forEach((radio) => {

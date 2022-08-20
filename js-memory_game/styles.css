@@ -6,6 +6,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: bisque;
+  background-image: linear-gradient(to top, bisque, rgba(255, 255, 255, 0.396));
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -32,6 +34,7 @@ h3 {
     rgb(225, 30, 108),
     rgb(144, 30, 225)
   );
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.506);
 }
 
 .tile {
