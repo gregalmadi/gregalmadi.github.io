@@ -250,6 +250,7 @@ const resetData = () => {
   resetGame.style.display = "none";
   counter.style.display = "none";
   counter.innerHTML = "";
+  clearInterval(timer);
   startButton.disabled = true;
   flyAway = 0;
 
