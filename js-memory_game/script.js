@@ -1,5 +1,6 @@
 "use strict";
 
+//--------------------------------------------------
 // Creating HTML tiles
 const gameContainer = document.querySelector(".game-container");
 
@@ -14,6 +15,7 @@ const gameContainer = document.querySelector(".game-container");
   }
 })();
 
+//--------------------------------------------------
 // HTML selectors and global variables
 const tiles = document.querySelectorAll(".tile");
 const tileImages = document.querySelectorAll(".img_content");
@@ -27,6 +29,7 @@ const message = document.querySelector(".message");
 const gameOverWindow = document.querySelector(".gameOver");
 const restartGame = document.querySelector(".restart");
 const resetGame = document.querySelector(".reset");
+const counter = document.querySelector(".counter");
 
 let fruitMatrix = [[], [], [], [], [], [], [], []];
 let last2TileElements = { indexes: [], tiles: [], images: [] };
@@ -35,11 +38,15 @@ let initialize;
 let lives = 0;
 let flyAway = 0;
 
+let timer;
+
+//--------------------------------------------------
 // Initialize game
 (initialize = () => {
   gameContainer.classList.add("tileBlocker");
 })();
 
+//--------------------------------------------------
 // Tile content generator
 const randomizer = () => {
   tiles.forEach((el) => {
@@ -120,7 +127,8 @@ const randomizer = () => {
   });
 };
 
-// Check and handle click events
+//--------------------------------------------------
+// Check and handle tile click events
 tiles.forEach((tile, i) => {
   tile.addEventListener("mouseover", () => {
     tile.classList.add("tileHover");
@@ -213,29 +221,35 @@ tiles.forEach((tile, i) => {
   });
 });
 
+//--------------------------------------------------
 // Game status checker
 const statusCheck = () => {
   const endScreen = (status) => {
     setTimeout(() => {
       gameOverWindow.style.display = "block";
       message.innerHTML = `You ${status}!`;
-      livesCounter.innerHTML = "";
+      livesCounter.innerHTML = "Lives:";
     }, 1800);
   };
   if (flyAway === 8) {
     endScreen("won");
+    clearInterval(timer);
   }
 
   if (lives === 0) {
     endScreen("lost");
+    clearInterval(timer);
   }
 };
 
-// New game
+//--------------------------------------------------
+// Reset game, difficulty selection
 const resetData = () => {
   livesCounter.innerHTML = "";
   diffSelector.style.display = "block";
   resetGame.style.display = "none";
+  counter.style.display = "none";
+  counter.innerHTML = "";
   startButton.disabled = true;
   flyAway = 0;
 
@@ -272,18 +286,44 @@ resetGame.addEventListener("click", () => {
 radioButtons.forEach((btn) =>
   btn.addEventListener("click", () => {
     lives = Number(btn.getAttribute("id"));
-    livesCounter.innerHTML = `Lives: ${"❤️".repeat(lives)}`;
+    livesCounter.innerHTML = `Lives: ${"🍉".repeat(lives)}`;
     startButton.disabled = false;
   })
 );
 
+//--------------------------------------------------
+// Timer logic
+const counterUpdate = () => {
+  let minutes = 0;
+  let seconds = 0;
+  timer = setInterval(() => {
+    seconds++;
+
+    if (seconds < 10) {
+      seconds = `0${seconds}`;
+    } else if (seconds > 59) {
+      seconds = 0;
+      minutes++;
+      if (minutes < 10) {
+        minutes = `0${minutes}`;
+      }
+    }
+
+    counter.innerHTML = `Elapsed time: ${minutes}:${seconds}`;
+  }, 1000);
+};
+
+//-------------------------------------------------
+// Start game
 startButton.addEventListener("click", () => {
   diffSelector.style.display = "none";
   resetGame.style.display = "block";
+  counter.style.display = "block";
 
   radioButtons.forEach((radio) => {
     radio.checked = false;
   });
 
   randomizer();
+  counterUpdate();
 });
