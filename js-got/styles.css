@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap");
+@import url(//db.onlinewebfonts.com/c/97c4b25dc74e0ab045154e75a8fdd69d?family=Game+of+Thrones);
+@import url("http://fonts.cdnfonts.com/css/roboto");
+
+body {
+  font-family: "Game of Thrones", serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.section__map {
+  height: 100vh;
+  width: 100%;
+  background-image: url(./assets/site/mapblue.jpg);
+  object-fit: fill;
+  align-self: flex-start;
+}
+
+.container__characters {
+  display: inline-grid;
+  width: 100%;
+  grid-template: repeat(6, auto) / repeat(8, auto);
+  grid-gap: 20px;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+}
+
+.img_content {
+  width: 75px;
+  height: 75px;
+  align-self: center;
+  justify-self: center;
+  border: 2px solid rgba(11, 211, 237, 0);
+  border-radius: 50%;
+}
+
+.img_content:hover {
+  animation: hovering 1s infinite;
+}
+
+.char_name {
+  font-size: 0.6em;
+  align-self: center;
+  justify-self: center;
+}
+
+/* Sidebar elements -----------------------------------------*/
+.section__sidebar {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 350px;
+  gap: 20px;
+  background-color: rgb(70, 70, 70);
+  /*flex-shrink: 4;*/
+  align-self: flex-start;
+  color: white;
+}
+
+.header {
+  font-size: 120%;
+  align-self: flex-start;
+  justify-self: center;
+  width: 100%;
+}
+
+.information__character {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-self: center;
+  width: 90%;
+  gap: 10px;
+}
+
+.image__character {
+  object-fit: fill;
+}
+
+.bio__character {
+  font-family: "Roboto", sans-serif;
+  text-align: justify;
+}
+
+.badge__character {
+  width: 20px;
+  align-self: center;
+}
+
+.footer {
+  align-self: center;
+  justify-self: flex-end;
+}
+
+.notFound {
+  font-size: 0.8em;
+  padding: 20px;
+}
+
+/* Animations -------------------------------------------*/
+.selected {
+  animation: selected 2s infinite;
+}
+
+@keyframes selected {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.02;
+    border: 2px solid rgba(11, 211, 237, 100);
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes hovering {
+  0% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.02;
+    border: 2px solid rgba(255, 0, 0, 100);
+  }
+  100% {
+    scale: 1;
+  }
+}
