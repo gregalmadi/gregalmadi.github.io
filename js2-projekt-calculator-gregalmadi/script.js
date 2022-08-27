@@ -1,35 +1,21 @@
 "use strict";
 
 // HTML selectors
-const one = document.querySelector(".one");
-const two = document.querySelector(".two");
-const three = document.querySelector(".three");
-const four = document.querySelector(".four");
-const five = document.querySelector(".five");
-const six = document.querySelector(".six");
-const seven = document.querySelector(".seven");
-const eight = document.querySelector(".eight");
-const nine = document.querySelector(".nine");
-const zero = document.querySelector(".zero");
-
+const numpad = document.querySelectorAll(".num");
 const clear = document.querySelector(".delete");
 const decimal = document.querySelector(".decimal");
-
-const add = document.querySelector(".add");
-const subtract = document.querySelector(".subtract");
-const multiply = document.querySelector(".multiply");
-const divide = document.querySelector(".divide");
+const operations = document.querySelectorAll(".op");
 const equals = document.querySelector(".equals");
-const operations = document.querySelectorAll(".operations div");
-
 const output = document.querySelector(".display");
 
 let input;
 
-const inputChecker = (number) => {
-  output.innerHTML += number;
+const inputChecker = (input) => {
+  output.innerHTML += input;
 };
 
+//------------------------------------------------
+// Input blockers / enablers
 const removeDisabled = (element) => {
   element.forEach((e) => {
     e.classList.remove("disabled");
@@ -52,55 +38,25 @@ const decimalDisabler = () => {
 
 addDisabled(operations);
 
+//------------------------------------------------
 // Operation math
 const addition = (a, b) => input.unshift(a + b);
 const subtraction = (a, b) => input.unshift(a - b);
 const multiplication = (a, b) => input.unshift(a * b);
 const division = (a, b) => input.unshift(a / b);
 
+//------------------------------------------------
 // All click listeners
 
-//Numbers
-one.addEventListener("click", () => {
-  inputChecker(1);
-  removeDisabled(operations);
-});
-two.addEventListener("click", () => {
-  inputChecker(2);
-  removeDisabled(operations);
-});
-three.addEventListener("click", () => {
-  inputChecker(3);
-  removeDisabled(operations);
-});
-four.addEventListener("click", () => {
-  inputChecker(4);
-  removeDisabled(operations);
-});
-five.addEventListener("click", () => {
-  inputChecker(5);
-  removeDisabled(operations);
-});
-six.addEventListener("click", () => {
-  inputChecker(6);
-  removeDisabled(operations);
-});
-seven.addEventListener("click", () => {
-  inputChecker(7);
-  removeDisabled(operations);
-});
-eight.addEventListener("click", () => {
-  inputChecker(8);
-  removeDisabled(operations);
-});
-nine.addEventListener("click", () => {
-  inputChecker(9);
-  removeDisabled(operations);
-});
-zero.addEventListener("click", () => {
-  inputChecker(0);
-  removeDisabled(operations);
-});
+// Numbers
+const numpadAssoc = [7, 4, 1, 0, 8, 5, 2, 9, 6, 3];
+
+numpad.forEach((num, i) =>
+  num.addEventListener("click", () => {
+    inputChecker(numpadAssoc[i]);
+    removeDisabled(operations);
+  })
+);
 
 // Special
 clear.addEventListener("click", () => {
@@ -115,30 +71,18 @@ decimal.addEventListener("click", () => {
 });
 
 // Operations
-add.addEventListener("click", () => {
-  inputChecker(" + ");
-  addDisabled(operations);
-  decimalEnabler();
-});
 
-subtract.addEventListener("click", () => {
-  inputChecker(" - ");
-  addDisabled(operations);
-  decimalEnabler();
-});
+const operationsAssoc = [" + ", " - ", " × ", " ÷ "];
 
-divide.addEventListener("click", () => {
-  inputChecker(" ÷ ");
-  addDisabled(operations);
-  decimalEnabler();
-});
+operations.forEach((op, i) =>
+  op.addEventListener("click", () => {
+    inputChecker(operationsAssoc[i]);
+    addDisabled(operations);
+    decimalEnabler();
+  })
+);
 
-multiply.addEventListener("click", () => {
-  inputChecker(" × ");
-  addDisabled(operations);
-  decimalEnabler();
-});
-
+//------------------------------------------------
 // Calculation logic
 equals.addEventListener("click", () => {
   input = output.innerHTML.split(" ");
@@ -170,5 +114,14 @@ equals.addEventListener("click", () => {
     }
   }
 
-  output.innerHTML = input;
+  if (
+    !Number.isNaN(input[0]) &&
+    Number.isFinite(input[0]) &&
+    Number.isSafeInteger(input[0])
+  ) {
+    output.innerHTML = input[0];
+  } else {
+    console.log(input[0]);
+    output.innerHTML = "ERR";
+  }
 });
