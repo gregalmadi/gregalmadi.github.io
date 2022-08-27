@@ -1,3 +1,7 @@
+:root {
+  --container-height: 50vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -27,7 +31,7 @@ body {
   align-items: center;
   background-color: rgb(255, 255, 255);
   width: 60vw;
-  height: 40vh;
+  height: var(--container-height);
   padding: 5px;
   border: 2px solid rgba(0, 0, 0, 0.501);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.555);

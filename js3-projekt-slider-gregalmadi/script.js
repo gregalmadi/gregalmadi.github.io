@@ -1,5 +1,7 @@
 "use strict";
 
+import gallery from "./images.json" assert { type: "json" };
+
 const nextImage = document.querySelector(".arrow--right");
 const prevImage = document.querySelector(".arrow--left");
 const mainImage = document.querySelector(".image__main");
@@ -7,32 +9,7 @@ const bubbles = Array.from(document.querySelectorAll(".bubble"));
 const counter = document.querySelector(".counter");
 const caption = document.querySelector(".caption");
 
-const gallery = [
-  {
-    id: 0,
-    src: "images/caryatid.jpg",
-    caption:
-      "A caryatid is a sculpted female figure serving as an architectural support taking the place of a column or a pillar supporting an entablature on her head.",
-  },
-  {
-    id: 1,
-    src: "images/acropolis.jpg",
-    caption:
-      "The Acropolis of Athens is an ancient citadel located on a rocky outcrop above the city of Athens and contains the remains of several ancient buildings of great architectural and historical significance, the most famous being the Parthenon.",
-  },
-  {
-    id: 2,
-    src: "images/epidaurus.jpg",
-    caption:
-      "The Ancient Theatre of Epidaurus is a theatre in the Greek city of Epidaurus, located on the southeast end of the sanctuary dedicated to the ancient Greek God of medicine, Asclepius.",
-  },
-  {
-    id: 3,
-    src: "images/mystras.jpg",
-    caption:
-      "Mystras is a fortified town and a former municipality in Laconia, near ancient Sparta. It served as the capital of the Byzantine Despotate of the Morea in the 14th and 15th centuries, experiencing a period of prosperity and cultural flowering during the Palaeologan Renaissance.",
-  },
-];
+const autoSkipper = 5000;
 
 let imgID = 0;
 
@@ -75,4 +52,4 @@ const rollImage = (imgID) => {
 setInterval(() => {
   imgID === 3 ? (imgID = 0) : imgID++;
   rollImage(imgID);
-}, 5000);
+}, autoSkipper);
