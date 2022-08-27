@@ -50,48 +50,62 @@ const aliveAndSortedCharData = charData
   );
 })();
 
-// Event listeners for characters
-tileImages.forEach((img, i) => {
-  img.addEventListener("click", () => {
-    tileImages.forEach((img) => img.classList.remove("selected"));
+//------------------------------------
+// Show sidebar character details
+const showDetails = (img, i) => {
+  searchValue.value = "";
+  searchInfo.innerHTML = "";
 
-    img.classList.add("selected");
+  tileImages.forEach((img) => img.classList.remove("selected"));
+  img.classList.add("selected");
+
+  if (aliveAndSortedCharData[i]?.picture.includes("jpg")) {
     characterImage.setAttribute("src", `${aliveAndSortedCharData[i].picture}`);
-    characterName.innerHTML = `${aliveAndSortedCharData[i].name}`;
+  } else {
+    characterImage.setAttribute("src", `assets/pictures/noPic.jpg`);
+  }
+
+  characterName.innerHTML = `${aliveAndSortedCharData[i].name}`;
+
+  if (aliveAndSortedCharData[i]?.house)
     characterBadge.setAttribute(
       "src",
       `../assets/houses/${aliveAndSortedCharData[i].house}.png`
     );
-    characterBio.innerHTML = `${aliveAndSortedCharData[i].bio}`;
+  else if (aliveAndSortedCharData[i]?.organization) {
+    characterBadge.setAttribute(
+      "src",
+      `../assets/houses/${aliveAndSortedCharData[i].organization}.png`
+    );
+  } else {
+    characterBadge.setAttribute("src", `../assets/houses/noHouse.png`);
+  }
+
+  characterBio.innerHTML = `${aliveAndSortedCharData[i].bio}`;
+};
+
+//------------------------------------
+// Event listeners for characters
+tileImages.forEach((img, i) => {
+  img.addEventListener("click", () => {
+    showDetails(img, i);
   });
 });
 
+//------------------------------------
 // Searchbar functionality
 buttonSearch.addEventListener("click", () => {
   const searchedCharacter = searchValue.value.toLowerCase().trim();
 
-  tileImages.forEach((img) => img.classList.remove("selected"));
-
-  aliveAndSortedCharData.forEach((char, i) => {
+  for (const [i, char] of aliveAndSortedCharData.entries()) {
     if (
-      searchedCharacter !== "" &&
-      char.name.toLowerCase().includes(searchedCharacter)
+      char.name.toLowerCase().includes(searchedCharacter) &&
+      searchedCharacter !== ""
     ) {
-      tileImages[i].classList.add("selected");
-      characterImage.setAttribute(
-        "src",
-        `${aliveAndSortedCharData[i].picture}`
-      );
-      characterName.innerHTML = `${aliveAndSortedCharData[i].name}`;
-      characterBadge.setAttribute(
-        "src",
-        `../assets/houses/${aliveAndSortedCharData[i].house}.png`
-      );
-      characterBio.innerHTML = `${aliveAndSortedCharData[i].bio}`;
-      searchInfo.innerHTML = "";
-      searchValue.value = "";
+      showDetails(tileImages[i], i);
+      break;
     } else {
-      searchInfo.innerHTML = "No such character found.";
+      searchInfo.innerHTML = "No character found";
     }
-  });
+  }
 });
