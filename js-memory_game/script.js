@@ -214,7 +214,7 @@ tiles.forEach((tile, i) => {
 
       if (goodMoves.every((el) => el === false)) {
         lives--;
-        livesCounter.innerHTML = `Lives: ${"❤️".repeat(lives)}`;
+        livesCounter.innerHTML = `Lives: ${"🍉".repeat(lives)}`;
       }
       statusCheck();
     }
