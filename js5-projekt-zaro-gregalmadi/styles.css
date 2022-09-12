@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  color: white;
+  background-image: linear-gradient(
+    to top left,
+    rgb(95, 108, 187),
+    rgb(219, 218, 185)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.table__user {
+  background-color: rgba(78, 82, 86, 0.733);
+  padding: 5px;
+
+  border-radius: 5px;
+  display: table;
+  text-align: center;
+}
+
+.user,
+td {
+  background-color: rgba(129, 129, 160, 0.499);
+}
+
+.user:hover {
+  background-color: rgba(214, 214, 220, 0.499);
+  color: black;
+}
+
+th {
+  background-color: rgba(120, 111, 97, 0.53);
+  padding: 5px;
+}
+
+td {
+  padding: 5px;
+}
+
+td.user_name,
+td.user_address,
+td.user_email {
+  text-align: right;
+}
+
+.buttons {
+  padding: 5px;
+}
+
+.btn--edit,
+.btn--delete,
+.btn--add,
+.btn--save,
+.btn--clear {
+  border: none;
+  color: white;
+  outline: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.btn--edit {
+  background-color: cornflowerblue;
+  border-radius: 5px 0 0 5px;
+}
+
+.btn--delete {
+  background-color: red;
+  border-radius: 0 5px 5px 0;
+}
+
+.btn--add {
+  border-radius: 50%;
+  background-color: green;
+}
+
+.btn--save {
+  background-color: rgb(219, 200, 32);
+  border-radius: 5px 0 0 5px;
+}
+
+.btn--clear {
+  background-color: rgb(168, 40, 40);
+  border-radius: 0 5px 5px 0;
+}
+
+.newUser > input {
+  border: none;
+  outline: none;
+}
+
+.header__id,
+.header__name {
+  cursor: pointer;
+}
+
+.language {
+  position: fixed;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 5px;
+  right: 10px;
+  top: 10px;
+}
+
+.disabled {
+  pointer-events: none;
+  background-color: grey;
+  cursor: none;
+}
+
+.modal {
+  position: fixed;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.542);
+  z-index: 1;
+}
+
+.alertBox {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: 100px;
+  text-align: center;
+  background-color: rgba(124, 124, 124, 0.855);
+  border: 2px solid rgb(128, 0, 0);
+  z-index: 1;
+}
+
+.alert__header {
+  align-self: flex-start;
+  padding: 20px;
+}
+
+.fadeIn {
+  animation: alertFade 1s forwards normal;
+}
+
+.fadeOut {
+  animation: alertFade 1s forwards reverse;
+}
+
+@keyframes alertFade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
