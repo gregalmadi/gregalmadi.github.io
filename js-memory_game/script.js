@@ -7,7 +7,7 @@ const gameContainer = document.querySelector(".game-container");
 (() => {
   const tileTemplate = `
         <div class="tile">
-            <img class="img_content" src=" " /></div>
+            <img class="img_content" src=" " />
         </div>`;
 
   for (let i = 0; i < 16; i++) {
