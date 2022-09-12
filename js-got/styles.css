@@ -6,6 +6,8 @@ body {
   text-align: center;
   margin: 0;
   padding: 0;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
 }
@@ -49,6 +51,7 @@ body {
   font-size: 0.6em;
   align-self: center;
   justify-self: center;
+  padding: 5px;
 }
 
 /* Sidebar elements -----------------------------------------*/
@@ -109,20 +112,37 @@ body {
   display: flex;
   flex-direction: row;
   height: 40px;
+  gap: 5px;
 }
 
 .search {
   font-size: 150%;
+  border: none;
+  border-radius: 5px;
 }
 
 .input {
-  font-size: 110%;
+  display: flex;
+  border: none;
+  border-radius: 5px;
+  font-family: "Game of Thrones", serif;
+  font-size: 70%;
   width: 100%;
+  padding: 5px;
+  outline: none;
 }
 
 .notFound {
   font-size: 0.8em;
   padding: 20px;
+}
+
+.btn__sidebar--open {
+  position: fixed;
+  width: 5px;
+  height: 100vh;
+  background-color: rgb(131, 191, 211);
+  cursor: e-resize;
 }
 
 /* Animations -------------------------------------------*/
@@ -136,7 +156,7 @@ body {
   }
   50% {
     scale: 1.02;
-    border: 2px solid rgba(11, 211, 237, 100);
+    border: 2px dashed rgba(11, 211, 237, 100);
   }
   100% {
     scale: 1;
@@ -149,9 +169,30 @@ body {
   }
   50% {
     scale: 1.02;
-    border: 2px solid rgba(255, 0, 0, 100);
+    border: 2px dotted rgba(255, 0, 0, 100);
   }
   100% {
     scale: 1;
+  }
+}
+
+/* Mobile screen responsive design (scrollable) */
+
+@media only screen and (max-width: 1050px) {
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  .container__characters {
+    grid-template: repeat(12, auto) / repeat(4, auto);
+  }
+
+  .section__sidebar {
+    width: 300px;
+    height: 200%;
+  }
+
+  .section__map {
+    height: 200%;
   }
 }
