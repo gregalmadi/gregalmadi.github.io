@@ -9,6 +9,7 @@ const userTable = document.querySelector(".table__user--body");
 const addNewUserButton = document.querySelector(".btn--add");
 const addNewUserRow = document.querySelector(".newUser");
 const inputFields = document.querySelectorAll(".newUser input");
+const errorFields = document.querySelectorAll(".error");
 const clearButton = document.querySelector(".btn--clear");
 const saveButton = document.querySelector(".btn--save");
 
@@ -72,18 +73,25 @@ const generateEventListeners = (i) => {
   const currentUserName = currentUserRow.children[1].innerHTML;
 
   deleteButton.addEventListener("click", () => {
+    // Delete user from the DOM
     currentUserRow.remove();
 
+    // Displaying alert message of successful deletion
     alertMessage(
       languagePack[2].header,
       languagePack[2].message,
       languagePack[2].color
     );
 
+    // Searching for user unique key for database identification
     const userUniqueKey = userData.find(
       (user) => user.name === currentUserName
     ).uniqueKey;
 
+    // Deleting user data from local user object
+    userData = userData.filter((user) => !(user.name === currentUserName));
+
+    // Updating fetch options for delete request, and updating backend server
     updateOptions.body = "";
     updateOptions.method = "DELETE";
 
@@ -111,6 +119,8 @@ const generateEventListeners = (i) => {
     clearButton.classList.remove("disabled");
     saveButton.classList.remove("disabled");
     addNewUserButton.classList.add("disabled");
+
+    realTimeValidationCall();
   });
 };
 
@@ -122,6 +132,8 @@ addNewUserButton.addEventListener("click", () => {
   addNewUserButton.classList.add("disabled");
   clearButton.classList.remove("disabled");
   saveButton.classList.remove("disabled");
+
+  realTimeValidationCall();
 });
 
 // Clearing input fields for editing and adding new users
@@ -140,7 +152,7 @@ saveButton.addEventListener("click", () => {
   const emailAddress = newEmail.value;
   const address = newAddress.value;
 
-  valid = validator(name, emailAddress, address, valid);
+  valid = validator(valid);
 
   // Validating - input matches criteria
   if (valid) {
@@ -230,9 +242,11 @@ const enableInputFields = () => {
 
 // Clears and disables all input fields when done editing
 const resetInputFields = () => {
-  inputFields.forEach((input) => {
+  inputFields.forEach((input, i) => {
     input.value = "";
     input.classList.add("disabled");
+    input.style.border = "none";
+    errorFields[i].style.display = "none";
   });
 };
 
@@ -359,11 +373,33 @@ const regenDOM = () => {
     user.remove();
   });
 
-  userData.forEach((user) => {
+  userData.forEach((user, i) => {
     const userRow = document.createElement("tr");
     userRow.classList.add("user");
     userTable.appendChild(userRow);
     userRow.innerHTML = `<td class='user_id'>${user.id}</td> <td class='user_name'>${user.name}</td> <td class='user_email'>${user.emailAddress}</td> <td class='user_address'>${user.address}</td> <td class='buttons'><button class='btn--edit'><i class="fa fa-pencil" aria-hidden="true"></i></button><button class='btn--delete'><i class="fa fa-trash-o" aria-hidden="true"></i></button>
     </td>`;
+
+    users = document.querySelectorAll(".user");
+    deleteButtons = document.querySelectorAll(".btn--delete");
+    editButtons = document.querySelectorAll(".btn--edit");
+
+    generateEventListeners(i);
+  });
+};
+
+// Calling real time validation after 500ms of every keystroke
+const realTimeValidationCall = () => {
+  errorFields.forEach((error) => (error.innerHTML = languagePack[4].text));
+  inputFields.forEach((input) => {
+    input.addEventListener("keyup", () => {
+      setTimeout(() => {
+        clearTimeout();
+        validator(valid);
+      }, 500);
+    });
+    input.addEventListener("blur", () => {
+      validator(valid);
+    });
   });
 };
