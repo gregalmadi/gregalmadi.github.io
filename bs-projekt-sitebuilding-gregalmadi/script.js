@@ -74,3 +74,5 @@ footerLinks.forEach((link) => {
     $("#myBSModal").modal("toggle");
   });
 });
+
+$('[data-toggle]="tooltip"').tooltip();
