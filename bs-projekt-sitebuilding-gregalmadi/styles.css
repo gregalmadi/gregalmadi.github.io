@@ -4,10 +4,6 @@
   src: url(./assets/fonts/muli/Muli-ExtraLight.ttf);
 }
 
-/*font-family: "Catamaran", sans-serif;
-font-family: "Catamaran", Helvetica, Arial, sans-serif;
-font-family: "Lato", sans-serif;*/
-
 html::-webkit-scrollbar {
   display: none;
 }
@@ -42,6 +38,12 @@ body {
 
 .navbar-nav span:hover {
   color: #ffffff;
+}
+
+.navbar-toggler {
+  color: rgba(221, 221, 221, 0.826);
+  border: 2px solid rgba(221, 221, 221, 0.826);
+  padding-top: 10px;
 }
 
 .container__segment--first {
@@ -79,9 +81,11 @@ body {
   background-color: rgba(255, 255, 255, 0.05);
   color: white;
   padding: 10px 5px;
+  transition: 0s;
 }
 
 .btn--startNow:hover {
+  transition-delay: 0.3s;
   background-color: #fdcc52;
   border: 2px solid #fdcc52;
 }
@@ -193,7 +197,12 @@ a:visited {
 
 .header {
   font-family: "Catamaran", Helvetica, Arial, sans-serif;
-  font-size: 2em;
+  font-size: 2.5em;
+}
+
+.header--big {
+  font-family: "Catamaran", Helvetica, Arial, sans-serif;
+  font-size: 3em;
 }
 
 .paragraph {

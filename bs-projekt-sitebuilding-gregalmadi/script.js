@@ -3,6 +3,7 @@
 const navbar = document.querySelector(".navbar");
 const navBrand = document.querySelector(".navbar .navbar-brand");
 const navItem = document.querySelectorAll(".navbar-nav .nav-item");
+const navbarToggler = document.querySelector(".navbar-toggler");
 
 const modalTitle = document.querySelector(".modal-title");
 const footerLinks = document.querySelectorAll(".footerlinks a");
@@ -11,6 +12,8 @@ window.addEventListener("scroll", () => {
   if (window.scrollY !== 0) {
     navbar.style.backgroundColor = "white";
     navBrand.style.color = "black";
+    navbarToggler.style.color = "black";
+    navbarToggler.style.borderColor = "black";
     navItem.forEach((item) => {
       item.style.color = "black";
       item.addEventListener("mouseover", () => {
@@ -31,6 +34,8 @@ window.addEventListener("scroll", () => {
   } else {
     navbar.style.backgroundColor = "rgba(0,0,0,0)";
     navBrand.style.color = "#fec947";
+    navbarToggler.style.color = "rgba(221, 221, 221, 0.826)";
+    navbarToggler.style.borderColor = "rgba(221, 221, 221, 0.826)";
     navBrand.addEventListener("mouseover", () => {
       navBrand.style.color = "white";
     });
