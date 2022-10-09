@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="./font-awesome-4.7.0/css/font-awesome.min.css"
+    />
+
+    <title>Sitebuilding with SCSS</title>
+  </head>
+  <body>
+    <!-- Modal -->
+    <div class="modal">
+      <div class="modal-dialog">
+        <button class="btn btn--close">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+        <div class="modal-header header"></div>
+        <div class="modal-text paragraph"></div>
+        <footer class="modal-footer">
+          <button class="btn btn--okay">Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a class="navbar-brand" href="#">Start Bootstrap</a>
+        <button class="navbar-toggler" type="button">
+          Menu
+          <span class="navbar-toggler-icon"
+            ><i class="fa fa-bars" aria-hidden="true"></i
+          ></span>
+        </button>
+      </div>
+
+      <div class="navbar-nav">
+        <span><a class="nav-item">DOWNLOAD</a></span>
+        <span><a class="nav-item">FEATURES</a></span>
+        <span><a class="nav-item">CONTACT</a></span>
+      </div>
+    </nav>
+
+    <div class="container__segment--first">
+      <div class="container__content--first">
+        <div class="left">
+          <div class="intro--light header">
+            New Age is an app landing page that will help you beautifully
+            showcase your new mobile app, or anything else!
+          </div>
+
+          <button class="btn--startNow">START NOW FOR FREE!</button>
+        </div>
+        <div class="right">
+          <img
+            class="phone"
+            src="./assets/img/phone_screen.png"
+            alt="smartphone"
+          />
+        </div>
+      </div>
+    </div>
+    <div id="download" class="container__segment--second">
+      <div class="container__content--second">
+        <div class="intro--dark header">
+          Discover what all the buzz is about!
+        </div>
+        <div class="paragraph">
+          Our app is available on any mobile device! Download now to get
+          started!
+        </div>
+
+        <div class="linkGroup">
+          <a href="https://play.google.com/store/games" target="_blank">
+            <img
+              style="width: 175px"
+              src="./assets/img/google-play-badge.svg"
+              alt="google_play_dl_link"
+          /></a>
+          <a href="https://www.apple.com/hu/app-store/" target="_blank"
+            ><img
+              style="width: 175px"
+              src="./assets/img/app-store-badge.svg"
+              alt="app_store_dl_link"
+          /></a>
+        </div>
+      </div>
+    </div>
+
+    <div id="features" class="container__segment--third">
+      <div class="container__content--third">
+        <div class="intro--dark header">Unlimited Features, Unlimited Fun</div>
+        <div class="paragraph">
+          Check out what you can do with this app theme!
+        </div>
+        <hr />
+        <div class="container__features--third">
+          <img
+            class="phone"
+            src="./assets/img/phone_screen.png"
+            alt="smartphone"
+          />
+
+          <div class="container__features--third-right">
+            <div class="toprow">
+              <div class="feature">
+                <div class="feature-badge">
+                  <i class="fa fa-mobile fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="feature-title header_icon">Device Mockups</div>
+                <div class="feature-description paragraph">
+                  Ready to use HTML/CSS device mockups, no Photoshop required!
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-badge">
+                  <i class="fa fa-camera fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="feature-title header_icon">Flexible Use</div>
+                <div class="feature-description paragraph">
+                  Put an image, video, animation or anything else in the screen!
+                </div>
+              </div>
+            </div>
+            <div class="bottomrow">
+              <div class="feature">
+                <div class="feature-badge">
+                  <i class="fa fa-gift fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="feature-title header_icon">Free to Use</div>
+                <div class="feature-description paragraph">
+                  As always, this theme is free to download and use for any
+                  purpose!
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-badge">
+                  <i class="fa fa-unlock-alt fa-3x" aria-hidden="true"></i>
+                </div>
+                <div class="feature-title header_icon">Open source</div>
+                <div class="feature-description paragraph">
+                  Since this theme is MIT licensed, you can use it commercially!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container__segment--fourth">
+      <div class="container__content--fourth">
+        <div class="intro--light header--big">Stop waiting.</div>
+        <div class="intro--light header--big">Start building.</div>
+
+        <button class="btn--startNow">LET'S GET STARTED!</button>
+      </div>
+    </div>
+
+    <div id="contact" class="container__segment--fifth">
+      <div class="intro--dark header">We ❤️ new friends!</div>
+      <div class="links">
+        <div class="twitter">
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            data-toggle="tooltip"
+            data-placeent="top"
+            title="Twitter"
+            ><i class="fa fa-twitter" aria-hidden="true"></i
+          ></a>
+        </div>
+        <div class="facebook">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            data-toggle="tooltip"
+            data-placeent="top"
+            title="Facebook"
+            ><i class="fa fa-facebook" aria-hidden="true"></i
+          ></a>
+        </div>
+        <div class="youtube">
+          <a
+            href="https://youtube.com"
+            target="_blank"
+            data-toggle="tooltip"
+            data-placeent="top"
+            title="YouTube"
+            ><i class="fa fa-youtube-play" aria-hidden="true"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container__segment--sixth">
+      <div class="copyright">© SCSS Project 2022. All Rights Reserved.</div>
+
+      <div class="footerlinks">
+        <span><a>Privacy</a></span>
+        <span><a>Terms</a></span>
+        <span><a>FAQ</a></span>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
