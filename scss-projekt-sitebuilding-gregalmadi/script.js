@@ -6,7 +6,9 @@ const navItem = document.querySelectorAll(".navbar-nav .nav-item");
 const navbarToggler = document.querySelector(".navbar-toggler");
 const menuItems = document.querySelector(".navbar-nav");
 
-const footerLinks = document.querySelectorAll(".footerlinks a");
+const footerLinks = document.querySelectorAll(
+  ".container__segmentSixth__links a"
+);
 
 window.addEventListener("scroll", () => {
   if (window.scrollY !== 0) {
@@ -17,7 +19,7 @@ window.addEventListener("scroll", () => {
     navItem.forEach((item) => {
       item.style.color = "black";
       item.addEventListener("mouseover", () => {
-        item.style.color = "#fec947";
+        item.style.color = "#fdcc52";
       });
       item.addEventListener("mouseleave", () => {
         item.style.color = "black";
@@ -25,7 +27,7 @@ window.addEventListener("scroll", () => {
     });
 
     navBrand.addEventListener("mouseover", () => {
-      navBrand.style.color = "#fec947";
+      navBrand.style.color = "#fdcc52";
     });
 
     navBrand.addEventListener("mouseleave", () => {
@@ -33,7 +35,7 @@ window.addEventListener("scroll", () => {
     });
   } else {
     navbar.style.backgroundColor = "rgba(0,0,0,0)";
-    navBrand.style.color = "#fec947";
+    navBrand.style.color = "#fdcc52";
     navbarToggler.style.color = "rgba(221, 221, 221, 0.826)";
     navbarToggler.style.borderColor = "rgba(221, 221, 221, 0.826)";
     navBrand.addEventListener("mouseover", () => {
@@ -41,7 +43,7 @@ window.addEventListener("scroll", () => {
     });
 
     navBrand.addEventListener("mouseleave", () => {
-      navBrand.style.color = "#fec947";
+      navBrand.style.color = "#fdcc52";
     });
     navItem.forEach((item) => {
       item.addEventListener("mouseover", () => {
@@ -106,8 +108,8 @@ window.addEventListener("resize", () => {
 // Modal -----------------------------------------------------------
 
 const modalWindow = document.querySelector(".modal");
-const modalTitle = document.querySelector(".modal-header");
-const modalContent = document.querySelector(".modal-text");
+const modalTitle = document.querySelector(".modal__header");
+const modalContent = document.querySelector(".modal__text");
 
 const closeModalBtn = document.querySelector(".btn--close");
 const okayBtn = document.querySelector(".btn--okay");
