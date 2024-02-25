@@ -8,7 +8,12 @@ const timeOfTravel = new Date("2024-12-12").getTime();
 const now = new Date().getTime();
 
 const diffInDays = Math.trunc((timeOfTravel - now) / 1000 / 60 / 60 / 24);
-const diffInSeconds = (timeOfTravel - now) / 1000;
+let diffInSeconds = (timeOfTravel - now) / 1000;
+
+const updater = setInterval(()=>{
+  diffInSeconds = (timeOfTravel - now)
+},1000000)
+
 
 daysLeft.innerHTML = `DAYS LEFT: ${diffInDays}`;
 counter.innerHTML = `SECONDS LEFT: ${diffInSeconds}`;
