@@ -1,11 +1,14 @@
 "use strict";
 
 const counter = document.querySelector(".counter");
+const daysLeft = document.querySelector(".days");
 
 //const startDate = new Date("2022-05-29").getTime(); // previous streak: 110 days
-const startDate = new Date("2022-09-27").getTime();
+const timeOfTravel = new Date("2024-12-12").getTime();
 const now = new Date().getTime();
 
-const diffInDays = Math.trunc((now - startDate) / 1000 / 60 / 60 / 24);
+const diffInDays = Math.trunc((timeOfTravel - now) / 1000 / 60 / 60 / 24);
+const diffInSeconds = (timeOfTravel - now) / 1000;
 
-counter.innerHTML = `DAYS PASSED WITHOUT GAMES: ${diffInDays}`;
+daysLeft.innerHTML = `DAYS LEFT: ${diffInDays}`;
+counter.innerHTML = `SECONDS LEFT: ${diffInSeconds}`;
