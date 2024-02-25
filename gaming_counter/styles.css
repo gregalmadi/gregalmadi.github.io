@@ -15,7 +15,6 @@ body {
 .container {
   width: 100vw;
   height: 100vh;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,6 +25,6 @@ body {
   text-align: left;
   padding-left: 20px;
   color: rgb(168, 161, 179);
-  font-size: 500%;
+  font-size: 350%;
   font-family: "Cyberverse";
 }
