@@ -13,5 +13,7 @@ setInterval(() => {
   const minutes = Math.trunc((differenceInEpoch / 1000 / 60) % 60);
   const seconds = Math.trunc((differenceInEpoch / 1000) % 60);
 
-  counter.innerHTML = `TIME REMAINING TILL JAPAN 💕: ${days}:${hours}:${minutes}:${seconds}`;
+  counter.innerHTML = `TIME REMAINING TILL JAPAN 💕: ${days}:${hours}:${minutes}:${
+    String(seconds).length < 2 ? "0" + seconds : seconds
+  }`;
 }, 1000);
