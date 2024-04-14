@@ -3,7 +3,7 @@
 const counter = document.querySelector(".counter");
 
 setInterval(() => {
-  const timeOfTravel = new Date("2024-04-27").getTime();
+  const timeOfTravel = new Date("2024-04-27").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   const now = new Date().getTime();
 
   const differenceInEpoch = timeOfTravel - now;
