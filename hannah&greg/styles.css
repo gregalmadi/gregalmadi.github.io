@@ -22,7 +22,7 @@ body {
   justify-content: center;
 }
 
-.counter, .counter-obon {
+.counter {
   display: block;
   text-align: left;
   padding-left: 20px;
@@ -33,6 +33,13 @@ body {
 }
 
 .counter-obon {
+  display: block;
+  text-align: left;
+  padding-left: 20px;
+
+  color: rgb(168, 161, 179);
+  font-size: 200%;
+  font-family: "Cyberverse";
   padding-top: 50px; 
 }
 
