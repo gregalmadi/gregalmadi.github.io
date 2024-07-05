@@ -21,11 +21,11 @@ setInterval(() => {
   const minutesObon = Math.trunc((differenceInEpochObon / 1000 / 60) % 60);
   const secondsObon = Math.trunc((differenceInEpochObon / 1000) % 60);
 
-  counter.innerHTML = `TIME REMAINING TILL JAPAN PT.2 💕: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
+  counter.innerHTML = `TIME REMAINING TILL JAPAN PT.3 💕: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
     String(seconds).length < 2 ? "0" + seconds : seconds
   }`;
 
-  counterObon.innerHTML = `OBON? 💖: ${daysObon}:${String(hoursObon).length < 2 ? "0" + hoursObon : hoursObon}:${String(minutesObon).length < 2 ? "0" + minutesObon : minutesObon}:${
+  counterObon.innerHTML = `OBON! 💖: ${daysObon}:${String(hoursObon).length < 2 ? "0" + hoursObon : hoursObon}:${String(minutesObon).length < 2 ? "0" + minutesObon : minutesObon}:${
     String(secondsObon).length < 2 ? "0" + secondsObon : secondsObon
   }`;
 }, 1000);
