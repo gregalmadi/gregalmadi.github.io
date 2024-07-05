@@ -33,7 +33,7 @@ body {
 }
 
 .counter_obon {
-  padding-top: 50px; 
+  padding-bottom: 50px; 
 }
 
 @media only screen and (max-width: 1000px) {
