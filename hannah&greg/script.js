@@ -27,8 +27,8 @@ setInterval(() => {
 
   /*counterObon.innerHTML = `OBON! 💖: ${daysObon}:${String(hoursObon).length < 2 ? "0" + hoursObon : hoursObon}:${String(minutesObon).length < 2 ? "0" + minutesObon : minutesObon}:${
     String(secondsObon).length < 2 ? "0" + secondsObon : secondsObon
-  }`;
-}, 1000);*/
+  }`;*/
+}, 1000);
 
 
 
