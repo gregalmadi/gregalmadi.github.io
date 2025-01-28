@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&display=swap");
+@import url("http://fonts.cdnfonts.com/css/pokemon-solid");
+
+body {
+  font-family: "Cinzel", serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  /*background-color: bisque;*/
+  background-image: linear-gradient(
+    to top,
+    rgb(255, 255, 255),
+    rgba(189, 169, 128, 0.852)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-size: 46px;
+  margin-top: 100px;
+  font-family: "Pokemon Solid", sans-serif;
+  -webkit-text-stroke: 2px rgb(28, 17, 153);
+  color: rgb(232, 215, 87);
+  letter-spacing: 5px;
+}
+
+h1,
+h3 {
+  text-align: center;
+  width: auto;
+  margin: 20px, auto;
+}
+
+.game-container {
+  display: inline-grid;
+  grid-template: repeat(2, 7em) / repeat(5, 7em);
+  grid-gap: 20px;
+  padding: 20px;
+  background-image: url("./images/table.svg");
+
+  /*linear-gradient(
+    to top right,
+    rgb(212, 140, 119),
+    rgb(199, 152, 52),
+    rgb(121, 131, 127)
+  );*/
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.506);
+  border: 10px solid rgb(47, 47, 47);
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 720px) {
+  .game-container {
+    display: inline-grid;
+    grid-template: repeat(5, 7em) / repeat(2, 7em);
+    grid-gap: 20px;
+    padding: 20px;
+    background-image: url("./images/table_rot.svg");
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.506);
+    border: 10px solid rgb(47, 47, 47);
+    border-radius: 10px;
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-top: 20px;
+  }
+}
+
+.tile {
+  background-image: url("./images/back.svg");
+  /* linear-gradient(
+      to top right,
+      rgb(239, 239, 239),
+      rgb(255, 255, 255),
+      rgb(217, 217, 215)
+    );*/
+
+  box-shadow: -1px -1px 5px black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tileBlocker {
+  pointer-events: none;
+}
+
+.img_content {
+  visibility: hidden;
+  object-fit: cover;
+}
+
+.tileHidden {
+  visibility: hidden;
+}
+
+.tileHover {
+  animation: hoverTile 0.5s;
+}
+
+.tileFlip {
+  animation: flipTile 1s forwards;
+}
+
+.tileFlipBack {
+  animation: flipBackTile 1s;
+}
+
+.tileFlyAway {
+  animation: flyAway 2s;
+}
+
+.tileRandom {
+  animation: tilesRandomized 1s;
+}
+
+.grid-container {
+  margin: auto;
+  width: 30em;
+  text-align: center;
+}
+
+@keyframes hoverTile {
+  0% {
+    transform: none;
+  }
+  50% {
+    transform: rotate3d(1, -1, 0, -30deg);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes flipTile {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+@keyframes flipBackTile {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 360deg);
+  }
+}
+
+@keyframes flyAway {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: translate(-100vw, -100vh) rotate(-720deg) scale(0.1);
+    visibility: hidden;
+  }
+}
+
+@keyframes tilesRandomized {
+  0% {
+    transform: none;
+  }
+  100% {
+    transform: rotate3d(1, 0, 1, -720deg);
+  }
+}
+
+.gameOver {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+}
+
+.message {
+  color: white;
+  font-size: 200%;
+  text-align: center;
+  margin-top: 45vh;
+}
+
+.highscore {
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.reset,
+.restart,
+.start {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  padding: 2px;
+  font-weight: bold;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.reset {
+  display: none;
+}

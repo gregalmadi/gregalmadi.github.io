@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Memory Game</title>
+  </head>
+  <div class="gameOver">
+    <p class="message"></p>
+    <button class="restart">New Game</button>
+  </div>
+  <h1>Pokémon Tazo Matching Game</h1>
+
+  <h3 class="counter"></h3>
+
+  <h3 class="difficultySelector">
+    <input class="radio" type="radio" id="12" name="radio" />
+    <label for="easy">Easy⚡</label>
+
+    <input class="radio" type="radio" id="8" name="radio" />
+    <label for="medium">Medium⚡⚡</label>
+
+    <input class="radio" type="radio" id="4" name="radio" />
+    <label for="hard">Hard⚡⚡⚡</label>
+    <button class="start" disabled>Start Game</button>
+  </h3>
+
+  <div class="game-container"></div>
+
+  <h3 class="lives"></h3>
+
+  <button class="reset">Reset Game</button>
+  <div class="highscore">⬆️:</div>
+
+  <body>
+    <script src="script.js"></script>
+  </body>
+</html>
