@@ -53,7 +53,7 @@ h3 {
 @media only screen and (max-width: 720px) {
   .game-container {
     display: inline-grid;
-    grid-template: repeat(5, 7em) / repeat(2, 7em);
+    grid-template: repeat(5, 5.5em) / repeat(2, 5.5em);
     grid-gap: 20px;
     padding: 20px;
     background-image: url("./images/table_rot.svg");
@@ -64,8 +64,8 @@ h3 {
   }
 
   h1 {
-    font-size: 36px;
-    margin-top: 20px;
+    font-size: 26px;
+    margin-top: 10px;
   }
 }
 
