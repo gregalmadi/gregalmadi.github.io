@@ -37,6 +37,28 @@ h3 {
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.506);
 }
 
+@media only screen and (max-width: 550px) {
+  .game-container {
+    display: inline-grid;
+    grid-template: repeat(4, 4em) / repeat(4, 4em);
+    grid-gap: 20px;
+
+    padding: 20px;
+    background-image: linear-gradient(
+      to top right,
+      rgb(210, 23, 23),
+      rgb(225, 30, 108),
+      rgb(144, 30, 225)
+    );
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.506);
+  }
+
+  h1 {
+    font-size: 36px;
+    margin-top: 20px;
+  }
+}
+
 .tile {
   background-color: rgb(22, 21, 21, 0.8);
   box-shadow: -1px -1px 5px black;
