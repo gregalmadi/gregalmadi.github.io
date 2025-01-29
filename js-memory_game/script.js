@@ -170,7 +170,7 @@ tiles.forEach((tile, i) => {
       document.body.classList.add("tileBlocker");
       setTimeout(() => {
         document.body.classList.remove("tileBlocker");
-      }, 1800);
+      }, 2000);
 
       fruitMatrix.forEach((fruitPos) => {
         if (fruitPos.every((el) => last2TileElements.indexes.includes(el))) {
