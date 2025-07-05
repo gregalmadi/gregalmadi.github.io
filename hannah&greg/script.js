@@ -25,7 +25,7 @@ setInterval(() => {
   //  String(seconds).length < 2 ? "0" + seconds : seconds
   //}`;
 
-  counter.innerHTML = `HANNAH GOES HOME IN🛫: ${days} DAYS, ${String(hours).length < 2 ? "0" + hours : hours} HRs, ${String(minutes).length < 2 ? "0" + minutes : minutes} MINs, ${
+  counter.innerHTML = `HANNAH GOES HOME IN 🛫: ${days} DAYs, ${String(hours).length < 2 ? "0" + hours : hours} HRs, ${String(minutes).length < 2 ? "0" + minutes : minutes} MINs, ${
     String(seconds).length < 2 ? "0" + seconds : seconds
   } SECs`;
 
