@@ -4,7 +4,7 @@ const counter = document.querySelector(".counter");
 //const counterObon = document.querySelector(".counter_obon");
 
 setInterval(() => {
-  const timeOfTravel = new Date("2025-08-19").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
+  const timeOfTravel = new Date("2025-08-11").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   //const timeOfTravelObon = new Date("2024-08-09").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   const now = new Date().getTime();
 
@@ -21,9 +21,13 @@ setInterval(() => {
   //const minutesObon = Math.trunc((differenceInEpochObon / 1000 / 60) % 60);
   //const secondsObon = Math.trunc((differenceInEpochObon / 1000) % 60);
 
-  counter.innerHTML = `TIME REMAINING TILL PHILIPPINES 🌋💕🌴: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
+  //counter.innerHTML = `TIME REMAINING TILL PHILIPPINES 🌋💕🌴: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
+  //  String(seconds).length < 2 ? "0" + seconds : seconds
+  //}`;
+
+  counter.innerHTML = `HANNAH GOES HOME IN🛫: ${days} DAYS, ${String(hours).length < 2 ? "0" + hours : hours} HRs, ${String(minutes).length < 2 ? "0" + minutes : minutes} MINs, ${
     String(seconds).length < 2 ? "0" + seconds : seconds
-  }`;
+  } SECs`;
 
   /*counterObon.innerHTML = `OBON! 💖: ${daysObon}:${String(hoursObon).length < 2 ? "0" + hoursObon : hoursObon}:${String(minutesObon).length < 2 ? "0" + minutesObon : minutesObon}:${
     String(secondsObon).length < 2 ? "0" + secondsObon : secondsObon
