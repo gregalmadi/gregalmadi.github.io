@@ -4,7 +4,7 @@ const counter = document.querySelector(".counter");
 //const counterObon = document.querySelector(".counter_obon");
 
 setInterval(() => {
-  const timeOfTravel = new Date("2025-12-30").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
+  const timeOfTravel = new Date("2025-12-27").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   //const timeOfTravelObon = new Date("2024-08-09").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   const now = new Date().getTime();
 
@@ -33,6 +33,7 @@ setInterval(() => {
     String(secondsObon).length < 2 ? "0" + secondsObon : secondsObon
   }`;*/
 }, 1000);
+
 
 
 
