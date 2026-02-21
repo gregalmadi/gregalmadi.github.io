@@ -4,7 +4,7 @@ const counter = document.querySelector(".counter");
 //const counterObon = document.querySelector(".counter_obon");
 
 setInterval(() => {
-  const timeOfTravel = new Date("2025-12-27").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
+  const timeOfTravel = new Date("2026-03-10").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   //const timeOfTravelObon = new Date("2024-08-09").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   const now = new Date().getTime();
 
@@ -21,9 +21,13 @@ setInterval(() => {
   //const minutesObon = Math.trunc((differenceInEpochObon / 1000 / 60) % 60);
   //const secondsObon = Math.trunc((differenceInEpochObon / 1000) % 60);
 
-  counter.innerHTML = `TIME REMAINING TILL WEDDING TRIP 💍💕💫: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
+  counter.innerHTML = `TIME REMAINING TILL VISA APPOINTMENT 🪪🏢: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
     String(seconds).length < 2 ? "0" + seconds : seconds
   }`;
+
+  //counter.innerHTML = `TIME REMAINING TILL WEDDING TRIP 💍💕💫: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
+  //  String(seconds).length < 2 ? "0" + seconds : seconds
+  //}`;
 
   //counter.innerHTML = `HANNAH GOES HOME IN 🛫: ${days} DAYs, ${String(hours).length < 2 ? "0" + hours : hours} HRs, ${String(minutes).length < 2 ? "0" + minutes : minutes} MINs, ${
   //  String(seconds).length < 2 ? "0" + seconds : seconds
@@ -33,6 +37,7 @@ setInterval(() => {
     String(secondsObon).length < 2 ? "0" + secondsObon : secondsObon
   }`;*/
 }, 1000);
+
 
 
 
