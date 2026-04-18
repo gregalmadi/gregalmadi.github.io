@@ -4,7 +4,7 @@ const counter = document.querySelector(".counter");
 //const counterObon = document.querySelector(".counter_obon");
 
 setInterval(() => {
-  const timeOfTravel = new Date("2026-03-10").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
+  const timeOfTravel = new Date("2026-03-27").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   //const timeOfTravelObon = new Date("2024-08-09").getTime() + new Date().getTimezoneOffset() * 60 * 1000;
   const now = new Date().getTime();
 
@@ -21,7 +21,7 @@ setInterval(() => {
   //const minutesObon = Math.trunc((differenceInEpochObon / 1000 / 60) % 60);
   //const secondsObon = Math.trunc((differenceInEpochObon / 1000) % 60);
 
-  counter.innerHTML = `TIME REMAINING TILL VISA APPOINTMENT 🪪🏢: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
+  counter.innerHTML = `TIME SINCE VISA APPOINTMENT 🪪🏢: ${days}:${String(hours).length < 2 ? "0" + hours : hours}:${String(minutes).length < 2 ? "0" + minutes : minutes}:${
     String(seconds).length < 2 ? "0" + seconds : seconds
   }`;
 
